@@ -13,10 +13,16 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\hw_01">
+      <UniqueIdentifier>{ec16e234-60bc-4d59-8c72-7af931c5d3d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="games.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hw_01\main.cpp">
+      <Filter>源文件\hw_01</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
