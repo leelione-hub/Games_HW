@@ -40,7 +40,7 @@ auto to_vec4(const Eigen::Vector3f& v3, float w = 1.0f)
 }
 
 
-static bool insideTriangle(int x, int y, const Vector3f* _v)
+static bool insideTriangle(float x, float y, const Vector3f* _v)
 {   
     // TODO : Implement this function to check if the point (x, y) is inside the triangle represented by _v[0], _v[1], _v[2]
     Eigen::Vector2f side1;
@@ -131,11 +131,6 @@ void rst::rasterizer::draw(pos_buf_id pos_buffer, ind_buf_id ind_buffer, col_buf
 //Screen space rasterization
 void rst::rasterizer::rasterize_triangle(const Triangle& t) {
     auto v = t.toVector4();
-
-    
-   
-    
-    
     // TODO : Find out the bounding box of current triangle.
     // iterate through the pixel and find if the current pixel is inside the triangle
 
@@ -144,36 +139,41 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t) {
     float min_y = std::min(v[0].y(), std::min(v[1].y(), v[2].y()));
     float max_y = std::max(v[0].y(), std::max(v[1].y(), v[2].y()));
 
+    std::vector<float> a{0.25,0.25,0.75,0.75,0.25};
+
     for (int x = min_x; x < max_x; x++)
     {
         for (int y = min_y; y < max_y; y++)
-        {
-            if (insideTriangle(x, y, t.v))
+        {                    
+            //最小深度，默认是无穷远
+            float min_depth = FLT_MAX, num = 0, eid = get_index(x, y);
+            for (int k = 0; k < 4; k++)
             {
-                //最小深度，默认是无穷远
-                float min_depth = FLT_MAX;
-
-                //如果在三角形内部，计算当前深度,得到当前最小深度
-                auto tup = computeBarycentric2D(x, y, t.v);
-                float alpha, beta, gamma;
-                std::tie(alpha, beta, gamma) = tup;
-                float w_reciprocal = 1.0/((double)alpha / v[0].w() + beta / v[1].w() + gamma / v[2].w());
-                float z_interpolated = alpha * v[0].z() / v[0].w() + beta * v[1].z() / v[1].w() + gamma * v[2].z() / v[2].w();
-                z_interpolated *= w_reciprocal;
-                min_depth = std::min(min_depth, z_interpolated);
-                if (depth_buf[get_index(x, y)] > min_depth)
+                if (insideTriangle(x+a[k], y+a[k+1], t.v))
                 {
-                    //获得最上层应该渲染的颜色
-                    Vector3f color = t.getColor();
-                    Vector3f point;
-                    point << x, y, min_depth;
-                    //更新深度
-                    depth_buf[get_index(x, y)] = min_depth;
-                    //更新所在点的颜色
-                    set_pixel(point, color);
+                    //如果在三角形内部，计算当前深度,得到当前最小深度
+                    auto tup = computeBarycentric2D(x + a[k], y + a[k + 1], t.v);
+                    float alpha, beta, gamma;
+                    std::tie(alpha, beta, gamma) = tup;
+                    float w_reciprocal = 1.0 / (alpha / v[0].w() + beta / v[1].w() + gamma / v[2].w());
+                    float z_interpolated = alpha * v[0].z() / v[0].w() + beta * v[1].z() / v[1].w() + gamma * v[2].z() / v[2].w();
+                    z_interpolated *= w_reciprocal;
+                    if (z_interpolated > depth_sample[eid + k])
+                    {
+                        depth_sample[eid + k] = z_interpolated;
+                        frame_sample[eid + k] = t.getColor() / 4;
+                    }
+                    min_depth = std::min(min_depth, z_interpolated);
                 }
             }
-
+            Vector3f color = frame_sample[eid] + frame_sample[eid + 1] + frame_sample[eid + 2] + frame_sample[eid + 3];
+            Vector3f point;
+            point << x, y, min_depth;
+            if (depth_buf[get_index(x, y)] > min_depth)
+            {
+                depth_buf[get_index(x, y)] = min_depth;
+            }
+            set_pixel(point, color);
         }
     }
     // If so, use the following code to get the interpolated z value.
@@ -205,10 +205,12 @@ void rst::rasterizer::clear(rst::Buffers buff)
     if ((buff & rst::Buffers::Color) == rst::Buffers::Color)
     {
         std::fill(frame_buf.begin(), frame_buf.end(), Eigen::Vector3f{0, 0, 0});
+        std::fill(frame_sample.begin(), frame_sample.end(), Eigen::Vector3f{ 0, 0, 0 });
     }
     if ((buff & rst::Buffers::Depth) == rst::Buffers::Depth)
     {
-        std::fill(depth_buf.begin(), depth_buf.end(), std::numeric_limits<float>::infinity());
+        std::fill(depth_buf.begin(), depth_buf.end(), std::numeric_limits<float>::min());
+        std::fill(depth_sample.begin(), depth_sample.end(), std::numeric_limits<float>::min());
     }
 }
 
@@ -216,6 +218,8 @@ rst::rasterizer::rasterizer(int w, int h) : width(w), height(h)
 {
     frame_buf.resize(w * h);
     depth_buf.resize(w * h);
+    frame_sample.resize(w * h * 4);
+    depth_sample.resize(w * h * 4);
 }
 
 int rst::rasterizer::get_index(int x, int y)
