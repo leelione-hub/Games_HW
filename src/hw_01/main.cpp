@@ -40,6 +40,24 @@ Eigen::Matrix4f get_model_matrix(float rotation_angle)
     return model;
 }
 
+Eigen::Matrix4f get_rote_matrix(Eigen::Vector3f axis, float rote_angle)
+{
+    float angle = rote_angle / 180.0 * MY_PI;
+    Eigen::Matrix4f R;
+    Eigen::Matrix3f r;
+    Eigen::Matrix3f m;
+    m << 0, -axis[2], axis[1],
+        axis[2], 0, -axis[0],
+        -axis[2], axis[0], 0;
+    r = Eigen::Matrix3f::Identity() * std::cos(angle) + (1 - std::cos(angle)) * axis * axis.adjoint() + std::sin(angle) * m;
+    R << r(0, 0), r(0, 1), r(0, 2), 0,
+        r(1, 0), r(1, 1), r(1, 2), 0,
+        r(2, 0), r(2, 1), r(2, 2), 0,
+        0, 0, 0, 1;
+
+    return R;
+}
+
 Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio,
                                       float zNear, float zFar)
 {
@@ -112,10 +130,13 @@ int main(int argc, const char** argv)
         return 0;
     }
 
+    Eigen::Vector3f axis;
+    axis << 2, 0, 0;
+
     while (key != 27) {
         r.clear(rst::Buffers::Color | rst::Buffers::Depth);
 
-        r.set_model(get_model_matrix(angle));
+        r.set_model(get_rote_matrix(axis,angle));
         r.set_view(get_view_matrix(eye_pos));
         r.set_projection(get_projection_matrix(45, 1, 0.1, 50));
 
