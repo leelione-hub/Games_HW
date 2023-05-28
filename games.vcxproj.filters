@@ -21,11 +21,28 @@
     <ClCompile Include="src\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\hw_01\p0.cpp">
+      <Filter>源文件\hw_01</Filter>
+    </ClCompile>
     <ClCompile Include="src\hw_01\main.cpp">
+      <Filter>源文件\hw_01</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hw_01\rasterizer.cpp">
+      <Filter>源文件\hw_01</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hw_01\Triangle.cpp">
       <Filter>源文件\hw_01</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\hw_01\rasterizer.hpp">
+      <Filter>源文件\hw_01</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_01\Triangle.hpp">
+      <Filter>源文件\hw_01</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

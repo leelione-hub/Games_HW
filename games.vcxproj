@@ -143,12 +143,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\hw_01\main.cpp" />
+    <ClCompile Include="src\hw_01\p0.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\hw_01\rasterizer.cpp" />
+    <ClCompile Include="src\hw_01\Triangle.cpp" />
     <ClCompile Include="src\main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\hw_01\rasterizer.hpp" />
+    <ClInclude Include="src\hw_01\Triangle.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
