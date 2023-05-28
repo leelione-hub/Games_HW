@@ -142,12 +142,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\hw_01\main.cpp" />
+    <ClCompile Include="src\hw_01\main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="src\hw_01\p0.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="src\hw_01\rasterizer.cpp" />
     <ClCompile Include="src\hw_01\Triangle.cpp" />
+    <ClCompile Include="src\hw_02\main.cpp" />
+    <ClCompile Include="src\hw_02\rasterizer.cpp" />
+    <ClCompile Include="src\hw_02\Triangle.cpp" />
     <ClCompile Include="src\main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -158,6 +163,9 @@
   <ItemGroup>
     <ClInclude Include="src\hw_01\rasterizer.hpp" />
     <ClInclude Include="src\hw_01\Triangle.hpp" />
+    <ClInclude Include="src\hw_02\global.hpp" />
+    <ClInclude Include="src\hw_02\rasterizer.hpp" />
+    <ClInclude Include="src\hw_02\Triangle.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

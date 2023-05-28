@@ -16,6 +16,9 @@
     <Filter Include="源文件\hw_01">
       <UniqueIdentifier>{ec16e234-60bc-4d59-8c72-7af931c5d3d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\hw_02">
+      <UniqueIdentifier>{62476eec-ae84-4c61-b173-b1f03808d0bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -33,6 +36,15 @@
     <ClCompile Include="src\hw_01\Triangle.cpp">
       <Filter>源文件\hw_01</Filter>
     </ClCompile>
+    <ClCompile Include="src\hw_02\main.cpp">
+      <Filter>源文件\hw_02</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hw_02\rasterizer.cpp">
+      <Filter>源文件\hw_02</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hw_02\Triangle.cpp">
+      <Filter>源文件\hw_02</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -43,6 +55,15 @@
     </ClInclude>
     <ClInclude Include="src\hw_01\Triangle.hpp">
       <Filter>源文件\hw_01</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_02\global.hpp">
+      <Filter>源文件\hw_02</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_02\rasterizer.hpp">
+      <Filter>源文件\hw_02</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_02\Triangle.hpp">
+      <Filter>源文件\hw_02</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
