@@ -119,6 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,11 +149,25 @@
     <ClCompile Include="src\hw_01\p0.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="src\hw_01\rasterizer.cpp" />
-    <ClCompile Include="src\hw_01\Triangle.cpp" />
-    <ClCompile Include="src\hw_02\main.cpp" />
-    <ClCompile Include="src\hw_02\rasterizer.cpp" />
-    <ClCompile Include="src\hw_02\Triangle.cpp" />
+    <ClCompile Include="src\hw_01\rasterizer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\hw_01\Triangle.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\hw_02\main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\hw_02\rasterizer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\hw_02\Triangle.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\hw_03\main.cpp" />
+    <ClCompile Include="src\hw_03\rasterizer.cpp" />
+    <ClCompile Include="src\hw_03\Texture.cpp" />
+    <ClCompile Include="src\hw_03\Triangle.cpp" />
     <ClCompile Include="src\main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -161,11 +176,27 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\hw_01\rasterizer.hpp" />
-    <ClInclude Include="src\hw_01\Triangle.hpp" />
-    <ClInclude Include="src\hw_02\global.hpp" />
-    <ClInclude Include="src\hw_02\rasterizer.hpp" />
-    <ClInclude Include="src\hw_02\Triangle.hpp" />
+    <ClInclude Include="src\hw_01\rasterizer.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_01\Triangle.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_02\global.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_02\rasterizer.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_02\Triangle.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_03\global.hpp" />
+    <ClInclude Include="src\hw_03\OBJ_Loader.h" />
+    <ClInclude Include="src\hw_03\rasterizer.hpp" />
+    <ClInclude Include="src\hw_03\Shader.hpp" />
+    <ClInclude Include="src\hw_03\Texture.hpp" />
+    <ClInclude Include="src\hw_03\Triangle.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

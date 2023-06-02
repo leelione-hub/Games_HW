@@ -167,7 +167,7 @@ void rst::rasterizer::rasterize_triangle(const Triangle& t) {
                 }
             }
             Vector3f color = frame_sample[eid] + frame_sample[eid + 1] + frame_sample[eid + 2] + frame_sample[eid + 3];
-            Vector3f point;
+            Vector3f point; 
             point << x, y, min_depth;
             if (depth_buf[get_index(x, y)] > min_depth)
             {
