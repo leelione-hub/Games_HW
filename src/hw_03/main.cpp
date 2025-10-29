@@ -214,6 +214,33 @@ Eigen::Vector3f displacement_fragment_shader(const fragment_shader_payload& payl
     // Position p = p + kn * n * h(u,v)
     // Normal n = normalize(TBN * ln)
 
+    auto n = normal;
+    float x = n.x();
+    float y = n.y();
+    float z = n.z();
+    Vector3f t = Vector3f(x * y / sqrt(x * x + z * z), sqrt(x * x + z * z), z * y / sqrt(x * x + z * z));
+    Vector3f b = normal.cross(t);
+
+    Matrix3f TBN;
+    TBN << t.x(), b.x(), x,
+        t.y(), b.y(), y,
+        t.z(), b.z(), z;
+
+    auto uv = payload.tex_coords;
+    float u = uv.x() < 0 ? 0 : uv.x();
+    float v = uv.y() < 0 ? 0 : uv.y();
+    float w = payload.texture->width;
+    float h = payload.texture->height;
+
+    float du = kh * kn * (payload.texture->getColor(u + 1.0f / w, v).norm() - payload.texture->getColor(u, v).norm());
+    float dv = kh * kn * (payload.texture->getColor(u, v + 1.0f / h).norm() - payload.texture->getColor(u, v).norm());
+
+    Vector3f ln = Vector3f(-du, -dv, 1.0);
+
+    point += kn * normal * payload.texture->getColor(u, v).norm();
+
+    normal = (TBN * ln).normalized();
+
 
     Eigen::Vector3f result_color = {0, 0, 0};
 
@@ -222,7 +249,14 @@ Eigen::Vector3f displacement_fragment_shader(const fragment_shader_payload& payl
         // TODO: For each light source in the code, calculate what the *ambient*, *diffuse*, and *specular* 
         // components are. Then, accumulate that result on the *result_color* object.
 
+        float r = (light.position - point).norm();
+        Vector3f lightDir = (light.position - point).normalized();
+        Vector3f viewDir = (eye_pos - point).normalized();
+        Vector3f halfAngle = (lightDir + viewDir).normalized();
 
+        result_color += ka.cwiseProduct(amb_light_intensity);
+        result_color += kd.cwiseProduct(light.intensity / (r * r) * std::max(0.0f, lightDir.dot(normal)));
+        result_color += ks.cwiseProduct(light.intensity / (r * r) * std::pow(std::max(0.0f, normal.dot(halfAngle)), p));
     }
 
     return result_color * 255.f;
@@ -253,15 +287,39 @@ Eigen::Vector3f bump_fragment_shader(const fragment_shader_payload& payload)
     float kh = 0.2, kn = 0.1;
 
     // TODO: Implement bump mapping here
-    // Let n = normal = (x, y, z)
-    // Vector t = (x*y/sqrt(x*x+z*z),sqrt(x*x+z*z),z*y/sqrt(x*x+z*z))
-    // Vector b = n cross product t
-    // Matrix TBN = [t b n]
-    // dU = kh * kn * (h(u+1/w,v)-h(u,v))
-    // dV = kh * kn * (h(u,v+1/h)-h(u,v))
-    // Vector ln = (-dU, -dV, 1)
-    // Normal n = normalize(TBN * ln)
+    // let n = normal = (x, y, z)
+    // vector t = (x*y/sqrt(x*x+z*z),sqrt(x*x+z*z),z*y/sqrt(x*x+z*z))
+    // vector b = n cross product t
+    // matrix tbn = [t b n]
+    // du = kh * kn * (h(u+1/w,v)-h(u,v))
+    // dv = kh * kn * (h(u,v+1/h)-h(u,v))
+    // vector ln = (-du, -dv, 1)
+    // normal n = normalize(tbn * ln)
 
+    auto n = normal;
+    float x = n.x();
+    float y = n.y();
+    float z = n.z();
+    Vector3f t = Vector3f(x * y / sqrt(x * x + z * z), sqrt(x * x + z * z), z * y / sqrt(x * x + z * z));
+    Vector3f b = normal.cross(t);
+
+    Matrix3f TBN;
+    TBN << t.x(), b.x(), x,
+        t.y(), b.y(), y,
+        t.z(), b.z(), z;
+
+    auto uv = payload.tex_coords;
+    float u = uv.x() < 0 ? 0 : uv.x();
+    float v = uv.y() < 0 ? 0 : uv.y();
+    float w = payload.texture->width;
+    float h = payload.texture->height;
+
+    float du = kh * kn * (payload.texture->getColor(u + 1.0f / w, v).norm() - payload.texture->getColor(u, v).norm());
+    float dv = kh * kn * (payload.texture->getColor(u , v + 1.0f /h).norm() - payload.texture->getColor(u, v).norm());
+
+    Vector3f ln = Vector3f(-du, -dv, 1.0);
+
+    normal = (TBN * ln).normalized();
 
     Eigen::Vector3f result_color = {0, 0, 0};
     result_color = normal;
@@ -276,12 +334,13 @@ int main(int argc, const char** argv)
     float angle = 140.0;
     bool command_line = false;
 
-    std::string filename = "output.png";
+    std::string filename = "src/hw_03/Images/output.png";
     objl::Loader Loader;
     std::string obj_path = "E:/CG_GAMES/Games101/games_work/games/src/hw_03/models/spot/";
+    std::string obj_name = "spot_triangulated_good.obj";
 
     // Load .obj File
-    bool loadout = Loader.LoadFile("E:/CG_GAMES/Games101/games_work/games/src/hw_03/models/spot/spot_triangulated_good.obj");
+    bool loadout = Loader.LoadFile(obj_path + obj_name);
     for(auto mesh:Loader.LoadedMeshes)
     {
         for(int i=0;i<mesh.Vertices.size();i+=3)
@@ -302,7 +361,7 @@ int main(int argc, const char** argv)
     auto texture_path = "hmap.jpg";
     r.set_texture(Texture(obj_path + texture_path));
 
-    std::function<Eigen::Vector3f(fragment_shader_payload)> active_shader = phong_fragment_shader;
+    std::function<Eigen::Vector3f(fragment_shader_payload)> active_shader = bump_fragment_shader;
 
     if (argc >= 2)
     {
