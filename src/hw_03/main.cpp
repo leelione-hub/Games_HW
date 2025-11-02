@@ -100,7 +100,8 @@ Eigen::Vector3f texture_fragment_shader(const fragment_shader_payload& payload)
         auto uv = payload.tex_coords;
         uv.x() = uv.x() < 0 ? 0 : uv.x();
         uv.y() = uv.y() < 0 ? 0 : uv.y();
-        return_color = payload.texture->getColor(uv.x(),uv.y());
+
+        return_color = payload.texture->getColorBilinear(uv.x(),uv.y());
     }
     Eigen::Vector3f texture_color;
     texture_color << return_color.x(), return_color.y(), return_color.z();
