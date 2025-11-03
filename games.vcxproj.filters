@@ -22,6 +22,9 @@
     <Filter Include="源文件\hw_03">
       <UniqueIdentifier>{51f297e8-88ad-4d43-a64b-d11b8fbbe415}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\hw_04">
+      <UniqueIdentifier>{7e22ad0a-6755-48de-b709-a58262e40b30}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -59,6 +62,9 @@
     </ClCompile>
     <ClCompile Include="src\hw_03\Triangle.cpp">
       <Filter>源文件\hw_03</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hw_04\main.cpp">
+      <Filter>源文件\hw_04</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
