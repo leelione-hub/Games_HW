@@ -11,3 +11,6 @@
 - 增加自定义的看锯齿效果
   - 没有加抗锯齿的效果![noaa](/src/hw_04/textures/Snipaste_2025-11-04_14-07-48.png)
   - 增加了抗锯齿效果![aa](/src/hw_04/textures/Snipaste_2025-11-04_14-08-32.png)
+  
+### 5.光线与三角形相交
+- ![](src/hw_05/texture/Snipaste_2025-11-05_15-20-39.png)

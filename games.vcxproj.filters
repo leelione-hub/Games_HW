@@ -25,6 +25,9 @@
     <Filter Include="源文件\hw_04">
       <UniqueIdentifier>{7e22ad0a-6755-48de-b709-a58262e40b30}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\hw_05">
+      <UniqueIdentifier>{821f1500-3fdc-4a63-8009-1d6b6e7ced98}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -66,6 +69,15 @@
     <ClCompile Include="src\hw_04\main.cpp">
       <Filter>源文件\hw_04</Filter>
     </ClCompile>
+    <ClCompile Include="src\hw_05\main.cpp">
+      <Filter>源文件\hw_05</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hw_05\Renderer.cpp">
+      <Filter>源文件\hw_05</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hw_05\Scene.cpp">
+      <Filter>源文件\hw_05</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -103,6 +115,30 @@
     </ClInclude>
     <ClInclude Include="src\hw_03\Triangle.hpp">
       <Filter>源文件\hw_03</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_05\global.hpp">
+      <Filter>源文件\hw_05</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_05\Light.hpp">
+      <Filter>源文件\hw_05</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_05\Object.hpp">
+      <Filter>源文件\hw_05</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_05\Renderer.hpp">
+      <Filter>源文件\hw_05</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_05\Scene.hpp">
+      <Filter>源文件\hw_05</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_05\Sphere.hpp">
+      <Filter>源文件\hw_05</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_05\Triangle.hpp">
+      <Filter>源文件\hw_05</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_05\Vector.hpp">
+      <Filter>源文件\hw_05</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
