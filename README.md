@@ -14,3 +14,7 @@
   
 ### 5.光线与三角形相交
 - ![](src/hw_05/texture/Snipaste_2025-11-05_15-20-39.png)
+
+### 6.加速结构
+- 默认BVH对应Render耗时11seconds，使用SAH加速后耗时10seconds
+- ![](src/hw_06/images/Snipaste_2025-11-06_19-25-20.png)

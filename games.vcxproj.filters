@@ -28,6 +28,9 @@
     <Filter Include="源文件\hw_05">
       <UniqueIdentifier>{821f1500-3fdc-4a63-8009-1d6b6e7ced98}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\hw_06">
+      <UniqueIdentifier>{b58bb9f4-bf67-4678-83fa-8865933e742c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -78,9 +81,27 @@
     <ClCompile Include="src\hw_05\Scene.cpp">
       <Filter>源文件\hw_05</Filter>
     </ClCompile>
+    <ClCompile Include="src\hw_06\BVH.cpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hw_06\main.cpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hw_06\Renderer.cpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hw_06\Scene.cpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hw_06\Vector.cpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="src\hw_06\README.md">
+      <Filter>源文件\hw_06</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\hw_01\rasterizer.hpp">
@@ -140,5 +161,55 @@
     <ClInclude Include="src\hw_05\Vector.hpp">
       <Filter>源文件\hw_05</Filter>
     </ClInclude>
+    <ClInclude Include="src\hw_06\AreaLight.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Bounds3.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\BVH.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\global.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Intersection.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Light.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Material.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\OBJ_Loader.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Object.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Ray.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Renderer.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Scene.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Sphere.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Triangle.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Vector.hpp">
+      <Filter>源文件\hw_06</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="src\hw_06\CMakeLists.txt">
+      <Filter>源文件\hw_06</Filter>
+    </Text>
   </ItemGroup>
 </Project>
