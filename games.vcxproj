@@ -191,18 +191,37 @@
     <ClCompile Include="src\hw_05\Scene.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="src\hw_06\BVH.cpp" />
-    <ClCompile Include="src\hw_06\main.cpp" />
-    <ClCompile Include="src\hw_06\Renderer.cpp" />
-    <ClCompile Include="src\hw_06\Scene.cpp" />
-    <ClCompile Include="src\hw_06\Vector.cpp" />
+    <ClCompile Include="src\hw_06\BVH.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\hw_06\main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\hw_06\Renderer.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\hw_06\Scene.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\hw_06\Vector.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="src\hw_07\BVH.cpp" />
+    <ClCompile Include="src\hw_07\main.cpp" />
+    <ClCompile Include="src\hw_07\Renderer.cpp" />
+    <ClCompile Include="src\hw_07\Scene.cpp" />
+    <ClCompile Include="src\hw_07\Vector.cpp" />
     <ClCompile Include="src\main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="src\hw_06\README.md" />
+    <None Include="src\hw_06\README.md">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="src\hw_07\.DS_Store" />
+    <None Include="src\hw_07\README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\hw_01\rasterizer.hpp">
@@ -262,24 +281,72 @@
     <ClInclude Include="src\hw_05\Vector.hpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
-    <ClInclude Include="src\hw_06\AreaLight.hpp" />
-    <ClInclude Include="src\hw_06\Bounds3.hpp" />
-    <ClInclude Include="src\hw_06\BVH.hpp" />
-    <ClInclude Include="src\hw_06\global.hpp" />
-    <ClInclude Include="src\hw_06\Intersection.hpp" />
-    <ClInclude Include="src\hw_06\Light.hpp" />
-    <ClInclude Include="src\hw_06\Material.hpp" />
-    <ClInclude Include="src\hw_06\Object.hpp" />
-    <ClInclude Include="src\hw_06\OBJ_Loader.hpp" />
-    <ClInclude Include="src\hw_06\Ray.hpp" />
-    <ClInclude Include="src\hw_06\Renderer.hpp" />
-    <ClInclude Include="src\hw_06\Scene.hpp" />
-    <ClInclude Include="src\hw_06\Sphere.hpp" />
-    <ClInclude Include="src\hw_06\Triangle.hpp" />
-    <ClInclude Include="src\hw_06\Vector.hpp" />
+    <ClInclude Include="src\hw_06\AreaLight.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Bounds3.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\BVH.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\global.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Intersection.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Light.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Material.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Object.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\OBJ_Loader.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Ray.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Renderer.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Scene.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Sphere.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Triangle.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_06\Vector.hpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="src\hw_07\AreaLight.hpp" />
+    <ClInclude Include="src\hw_07\Bounds3.hpp" />
+    <ClInclude Include="src\hw_07\BVH.hpp" />
+    <ClInclude Include="src\hw_07\global.hpp" />
+    <ClInclude Include="src\hw_07\Intersection.hpp" />
+    <ClInclude Include="src\hw_07\Light.hpp" />
+    <ClInclude Include="src\hw_07\Material.hpp" />
+    <ClInclude Include="src\hw_07\Object.hpp" />
+    <ClInclude Include="src\hw_07\OBJ_Loader.hpp" />
+    <ClInclude Include="src\hw_07\Ray.hpp" />
+    <ClInclude Include="src\hw_07\Renderer.hpp" />
+    <ClInclude Include="src\hw_07\Scene.hpp" />
+    <ClInclude Include="src\hw_07\Sphere.hpp" />
+    <ClInclude Include="src\hw_07\Triangle.hpp" />
+    <ClInclude Include="src\hw_07\Vector.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="src\hw_06\CMakeLists.txt" />
+    <Text Include="src\hw_06\CMakeLists.txt">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Text>
+    <Text Include="src\hw_07\CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

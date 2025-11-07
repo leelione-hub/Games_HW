@@ -18,3 +18,8 @@
 ### 6.加速结构
 - 默认BVH对应Render耗时11seconds，使用SAH加速后耗时10seconds
 - ![](src/hw_06/images/Snipaste_2025-11-06_19-25-20.png)
+  
+### 7.路径追踪
+- 16SPP ![16SPP](src/hw_07/images/Snipaste_2025-11-08_02-14-29.png)
+- 64SPP ![64SPP](src/hw_07/images/Snipaste_2025-11-08_02-14-54.png)
+- 256SPP ![256SPP](src/hw_07/images/Snipaste_2025-11-08_02-15-02.png)
